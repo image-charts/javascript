@@ -3,6 +3,7 @@
   "version": "5.0.0",
   "description": "Official Image-Charts.com API client library",
   "main": "lib.js",
+  "types": "types.d.ts",
   "scripts": {
     "test": "jest --coverage ./test.js",
     "@comment updr": "-r basic : Uses console.log for output, no need for a TTY (e.g when running on CI) => https://www.npmjs.com/package/updtr#--reporter--r",
