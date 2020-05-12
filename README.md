@@ -4,8 +4,7 @@
 [![maintainability](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/maintainability)](https://codeclimate.com/github/image-charts/javascript/maintainability)
 [![test coverage](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/test_coverage)](https://codeclimate.com/github/image-charts/javascript/test_coverage)
 
-![NODE VERSION](https://img.shields.io/node/v/node-image-charts.svg)
-[![BUILD STATUS](http://img.shields.io/david/image-charts/javascript.svg?style=flat)](https://david-dm.org/image-charts/javascript)
+[![DEPENDENCY STATUS](http://img.shields.io/david/image-charts/javascript.svg?style=flat)](https://david-dm.org/image-charts/javascript)
 [![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/image-charts/javascript.svg?style=flat)](https://david-dm.org/image-charts/javascript#info=devDependencies)
 
 <!--
