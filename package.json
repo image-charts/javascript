@@ -1,0 +1,93 @@
+{
+  "name": "node-image-charts",
+  "version": "5.0.1",
+  "description": "Official Image-Charts.com API client library",
+  "main": "lib.js",
+  "types": "types.d.ts",
+  "scripts": {
+    "test": "jest --coverage ./test.js",
+    "@comment updr": "-r basic : Uses console.log for output, no need for a TTY (e.g when running on CI) => https://www.npmjs.com/package/updtr#--reporter--r",
+    "updtr": "updtr -r basic"
+  },
+  "engines": {
+    "node": ">12"
+  },
+  "jest": {
+    "verbose": true,
+    "cacheDirectory": ".jest_cache",
+    "testEnvironment": "node",
+    "testTimeout": 5000,
+    "coverageDirectory": "coverage",
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "modulePaths": [
+      "<rootDir>/src/"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "outputDirectory": "coverage",
+          "outputName": "junit.xml"
+        }
+      ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 89,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    }
+  },
+  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "license": "Image-Charts",
+  "dependencies": {
+    "node-fetch": "2.6.0"
+  },
+  "devDependencies": {
+    "updtr": "3.1.0",
+    "jest": "26.0.1",
+    "babel-jest": "26.0.1",
+    "@babel/preset-env": "7.9.6",
+    "npm-release": "^1.0.0",
+    "jest-junit": "10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/image-charts/javascript.git"
+  },
+  "keywords": [
+    "front-end",
+    "backend-end",
+    "chart",
+    "charts",
+    "chart url",
+    "image",
+    "imagecharts",
+    "png",
+    "jpg",
+    "jpeg",
+    "gif",
+    "animated",
+    "api",
+    "pie",
+    "bar",
+    "horizontal-bar",
+    "bubble",
+    "doughnut",
+    "line",
+    "polar"
+  ],
+  "bugs": {
+    "url": "https://github.com/image-charts/javascript/issues"
+  },
+  "homepage": "https://github.com/image-charts/javascript#readme",
+  "contributors": [
+    "geopic (https://twitter.com/geopic1)"
+  ]
+}
