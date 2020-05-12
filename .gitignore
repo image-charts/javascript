@@ -1,0 +1,5 @@
+node_modules
+coverage
+.env
+*.log
+.jest_cache

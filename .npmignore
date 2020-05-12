@@ -1,0 +1,8 @@
+test.js
+__snapshots__
+node_modules
+coverage
+.env
+*.log
+babel.config.js
+.jest_cache
