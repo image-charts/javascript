@@ -1,6 +1,6 @@
 {
   "name": "image-charts",
-  "version": "5.0.2",
+  "version": "5.0.1",
   "description": "Official Image-Charts.com API client library",
   "main": "lib.js",
   "types": "types.d.ts",
@@ -45,7 +45,7 @@
     }
   },
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
-  "license": "Image-Charts",
+  "license": "MIT",
   "dependencies": {
     "node-fetch": "2.6.0"
   },
