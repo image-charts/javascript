@@ -86,7 +86,7 @@ describe("ImageCharts", () => {
         .toBuffer()
         .then((buff) =>
           expect(buff._request.headers["User-Agent"]).toStrictEqual(
-            `${pkg.name}/${pkg.version}`
+            `javascript-${pkg.name}/${pkg.version}`
           )
         ));
 
@@ -99,7 +99,7 @@ describe("ImageCharts", () => {
         .toBuffer()
         .catch((err) =>
           expect(err._request.headers["User-Agent"]).toStrictEqual(
-            `${pkg.name}/${pkg.version} (MY_ACCOUNT_ID)`
+            `javascript-${pkg.name}/${pkg.version} (MY_ACCOUNT_ID)`
           )
         ));
   });

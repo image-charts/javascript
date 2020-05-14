@@ -507,7 +507,7 @@ ImageCharts.prototype.toURL = function () {
 ImageCharts.prototype.toBuffer = function () {
   const _options = {
     timeout: this._timeout,
-    headers: { 'User-Agent': `${packageJson.name}/${packageJson.version}` + (this._query.icac ? ' ' + `(${this._query.icac})` : '') }
+    headers: { 'User-Agent': `javascript-image-charts/${packageJson.version}` + (this._query.icac ? ' ' + `(${this._query.icac})` : '') }
   };
   return fetch(this.toURL(), _options).then(res => {
     return res.buffer().then(buff => {

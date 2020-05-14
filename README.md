@@ -1,6 +1,6 @@
 ## Official [image-charts](https://image-charts.com/) JavaScript/NodeJS library
 
-[![NPM VERSION](http://img.shields.io/npm/v/node-image-charts.svg?style=flat)](https://www.npmjs.org/package/node-image-charts)
+[![NPM VERSION](http://img.shields.io/npm/v/image-charts.svg?style=flat)](https://www.npmjs.org/package/image-charts)
 [![maintainability](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/maintainability)](https://codeclimate.com/github/image-charts/javascript/maintainability)
 [![test coverage](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/test_coverage)](https://codeclimate.com/github/image-charts/javascript/test_coverage)
 
@@ -8,13 +8,13 @@
 [![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/image-charts/javascript.svg?style=flat)](https://david-dm.org/image-charts/javascript#info=devDependencies)
 
 <!--
-[![NPM MONTHLY](http://img.shields.io/npm/dm/node-image-charts.svg?style=flat)](http://npm-stat.com/charts.html?package=node-image-charts)
-![NPM YEARLY](https://img.shields.io/npm/dy/node-image-charts.svg)
-![NPM TOTAL](https://img.shields.io/npm/dt/node-image-charts.svg)
+[![NPM MONTHLY](http://img.shields.io/npm/dm/image-charts.svg?style=flat)](http://npm-stat.com/charts.html?package=image-charts)
+![NPM YEARLY](https://img.shields.io/npm/dy/image-charts.svg)
+![NPM TOTAL](https://img.shields.io/npm/dt/image-charts.svg)
 -->
 
-Official [Image Charts](https://image-charts.com/) API client. 
-Generate URLs of static image charts. 
+Official [Image Charts](https://image-charts.com/) API client.
+Generate URLs of static image charts.
 Embed them everywhere in emails, pdf reports, chat bots...!
 
 ### Table of Contents
@@ -66,7 +66,7 @@ Embed them everywhere in emails, pdf reports, chat bots...!
 ### Usage
 
 ```js
-import ImageCharts from 'node-image-charts';
+import ImageCharts from 'image-charts';
 
 const pie = ImageCharts().cht('p').chd('a:2.5,5,8.3').chs('100x100');
 
@@ -98,7 +98,7 @@ const ImageCharts = require('image-charts');
 > ES6
 
 ```javascript
-import ImageCharts from 'node-image-charts';
+import ImageCharts from 'image-charts';
 ```
 
 ----------------------------------------------------------------------------------------------
@@ -168,7 +168,7 @@ opt = {
 ##### Usage
 
 ```javascript
-import ImageCharts from 'node-image-charts';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
@@ -192,7 +192,7 @@ console.log(chart_url); // https://image-charts.com/chart?cht=bvg&chs=300x300&ch
 ##### Usage
 
 ```javascript
-import ImageCharts from 'node-image-charts';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
@@ -200,7 +200,7 @@ const chart_url = ImageCharts()
 .chd('a:60,40') // 2 data points: 60 and 40
 .toBuffer(); // download chart image
 
-console.log(chart_url); // <data:image/png;base64,iVBORw0KGgo...
+console.log(chart_url); // <Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
 ```
 
 - _[Back to usage](#usage)_
@@ -211,20 +211,20 @@ console.log(chart_url); // <data:image/png;base64,iVBORw0KGgo...
 <a name="todatauri"></a>
 #### `toDataURI()` : `String`
 
-> Do a request to Image-Charts API with current configuration and yield a promise of a base84 encoded [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
+> Do a request to Image-Charts API with current configuration and yield a promise of a base64 encoded [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs)
 
 ##### Usage
 
 ```javascript
-import ImageCharts from 'node-image-charts';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
 .chs('300x300') // 300px x 300px
 .chd('a:60,40') // 2 data points: 60 and 40
-.toDataURI(); // download chart image and generate data URI
+.toDataURI(); // download chart image and generate a buffer
 
-console.log(chart_url); // <Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
+console.log(chart_url); // <data:image/png;base64,iVBORw0KGgo...
 ```
 
 - _[Back to usage](#usage)_
@@ -246,7 +246,7 @@ These two parameters are mandatory to sign your request and remove the watermark
 Replace both values in the code example below:
 
 ```javascript
-import ImageCharts from 'node-image-charts';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts({secret: 'SECRET_KEY'})
                   .icac('ACCOUNT_ID')
@@ -275,7 +275,7 @@ Image-Charts virtual appliance can be deployed anywhere inside a customer networ
 
 
 ```javascript
-import ImageCharts from 'node-image-charts';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts({
         secret: 'SECRET_KEY',
