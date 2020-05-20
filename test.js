@@ -1,5 +1,6 @@
 import ImageCharts from "./";
 import pkg from "./package.json";
+import fs from 'fs';
 
 describe("ImageCharts", () => {
   it("works in ES6", () => {
@@ -19,6 +20,14 @@ describe("ImageCharts", () => {
       );
     });
 
+    it("works port override", () => {
+      expect(
+        ImageCharts({port: 8080}).cht("p").chd("t:1,2,3").toURL()
+      ).toMatchInlineSnapshot(
+        `"https://image-charts.com:8080/chart?cht=p&chd=t%3A1%2C2%2C3"`
+      );
+    });
+
     it("exposes parameters and use them", () => {
       let ic = ImageCharts();
       const chart = Object.keys(ic.__proto__)
@@ -34,7 +43,7 @@ describe("ImageCharts", () => {
 
     it("adds a signature when icac and secrets are defined", () =>
       expect(
-        ImageCharts({ secret: "plop" })
+        ImageCharts({secret: "plop"})
           .cht("p")
           .chd("t:1,2,3")
           .chs("100x100")
@@ -63,7 +72,7 @@ describe("ImageCharts", () => {
 
     it("rejects if timeout is reached", () =>
       expect(
-        ImageCharts({ timeout: 1 }) // 1ms
+        ImageCharts({timeout: 1}) // 1ms
           .cht("p")
           .chd("t:1,2,3")
           .chs("100x100")
@@ -131,13 +140,37 @@ describe("ImageCharts", () => {
         ));
   });
 
+  describe("toFile", () => {
+    it("rejects if there was an error", () =>
+      expect(
+        ImageCharts().cht("p").chd("t:1,2,3").toFile('/tmp/chart.png')
+      ).rejects.toMatchInlineSnapshot(`[Error: "chs" is required]`));
+
+    it("rejects when the path is invalid", () => {
+      const file_path = '/__invalid_path/chart.png';
+      return expect(ImageCharts()
+        .cht("bvg").chd("t:1,2,3").chs("40x40")
+        .toFile(file_path)).rejects.toBeDefined();
+    });
+
+    it("works", () => {
+      const file_path = '/tmp/chart.png';
+      return ImageCharts()
+        .cht("bvg").chd("t:1,2,3").chs("40x40")
+        .toFile(file_path)
+        .then(() =>
+          expect(fs.existsSync(file_path)).toBe(true)
+        );
+    });
+  });
+
   describe("protocol", () => {
     it("expose the protocol", () => {
       expect(ImageCharts()._protocol).toMatchInlineSnapshot(`"https"`);
     });
 
     it("let protocol to be user-defined", () => {
-      expect(ImageCharts({ protocol: "http" })._protocol).toMatchInlineSnapshot(
+      expect(ImageCharts({protocol: "http"})._protocol).toMatchInlineSnapshot(
         `"http"`
       );
     });
@@ -150,7 +183,7 @@ describe("ImageCharts", () => {
 
     it("let host to be user-defined", () => {
       expect(
-        ImageCharts({ host: "on-premise-image-charts.com" })._host
+        ImageCharts({host: "on-premise-image-charts.com"})._host
       ).toMatchInlineSnapshot(`"on-premise-image-charts.com"`);
     });
   });
@@ -167,7 +200,7 @@ describe("ImageCharts", () => {
     });
 
     it("let port to be user-defined", () => {
-      expect(ImageCharts({ port: 8080 })._port).toMatchInlineSnapshot(`8080`);
+      expect(ImageCharts({port: 8080})._port).toMatchInlineSnapshot(`8080`);
     });
   });
 

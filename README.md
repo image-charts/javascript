@@ -17,18 +17,16 @@ Official [Image Charts](https://image-charts.com/) API client.
 Generate URLs of static image charts.
 Embed them everywhere in emails, pdf reports, chat bots...!
 
-### Table of Contents
-
-- __[Usage](#usage)__
-- __[Install](#install)__
+- __[Getting started](#getting-started)__
 - __[Enterprise support](#enterprise-support)__
 - __[On-Premise support](#on-premise-support)__
 - __[Constructor](#constructor)__
-   - __[Options](#options)__
+    - __[Options](#options)__
 - __[Methods](#methods)__
-   - __[toURL()](#tourl)__
-   - __[toBuffer()](#tobuffer)__
-   - __[toDataURI()](#todatauri)__
+    - __[toURL()](#tourl)__
+    - __[toFile()](#tofile)__
+    - __[toBuffer()](#tobuffer)__
+    - __[toDataURI()](#todatauri)__
    - __[cht(value) - Chart type](#cht)__
    - __[chd(value) - chart data](#chd)__
    - __[chds(value) - data format with custom scaling](#chds)__
@@ -63,31 +61,15 @@ Embed them everywhere in emails, pdf reports, chat bots...!
 
 -----------------------------------------------------------------------
 
-### Usage
+### Getting started
 
-```js
-import ImageCharts from 'image-charts';
-
-const pie = ImageCharts().cht('p').chd('a:2.5,5,8.3').chs('100x100');
-
-pie.toURL(); // https://image-charts.com/chart?chd=a%3A2.5%2C5%2C8.3&chs=600x300&cht=p
-pie.toDataURI(); // data:image/png;base64,iVBORw0KGgo...
-pie.toBuffer(); // <Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
-```
-
-<p align="center">
-    <a href="https://www.image-charts.com/">
-        <img src="https://image-charts.com/chart?cht=bvs&chd=s:theresadifferencebetweenknowingthepathandwalkingthepath&chs=700x200&chxt=y&chf=b0,lg,90,4CA4F5,0.1,C371D3,0.8,EA469E,1" />
-    </a>
-</p>
-
------------------------------------------------------------------------
-
-### Install
+#### 1. Install Image-Charts [npm](https://www.npmjs.com/package/image-charts) Package
 
 ```bash
 npm install image-charts --save
 ```
+
+#### 2. Import Image-Charts library
 
 > CommonJS
 
@@ -100,6 +82,23 @@ const ImageCharts = require('image-charts');
 ```javascript
 import ImageCharts from 'image-charts';
 ```
+
+#### 3. Generate a chart image
+
+```js
+const pie = ImageCharts().cht('p').chd('a:2.5,5,8.3').chs('100x100');
+
+pie.toURL(); // String: https://image-charts.com/chart?chd=a%3A2.5%2C5%2C8.3&chs=600x300&cht=p
+pie.toFile('/path/to/chart.png'); // Promise<()>
+pie.toDataURI(); // Promise<String> : data:image/png;base64,iVBORw0KGgo...
+pie.toBuffer(); // Promise<Buffer> : Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
+```
+
+<p align="center">
+    <a href="https://www.image-charts.com/">
+        <img src="https://image-charts.com/chart?cht=bvs&chd=s:theresadifferencebetweenknowingthepathandwalkingthepath&chs=700x200&chxt=y&chf=b0,lg,90,4CA4F5,0.1,C371D3,0.8,EA469E,1" />
+    </a>
+</p>
 
 ----------------------------------------------------------------------------------------------
 
@@ -168,7 +167,7 @@ opt = {
 ##### Usage
 
 ```javascript
-import ImageCharts from 'image-charts';
+import ImageCharts from '<%= pkg.node.name %>';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
@@ -177,6 +176,37 @@ const chart_url = ImageCharts()
 .toURL(); // get the generated URL
 
 console.log(chart_url); // https://image-charts.com/chart?cht=bvg&chs=300x300&chd=a%3A60%2C40
+
+```
+
+- _[Back to usage](#usage)_
+- _[Back to ToC](#table-of-contents)_
+
+
+----------------------------------------------------------------------------------------------
+
+<a name="toFile"></a>
+#### `toFile(file)` : `Promise<()>`
+
+> Creates a file containing generated chart image and yield a promise.
+
+> When `file` is a filename, asynchronously writes data to the file, replacing the file if it already exists.
+> When `file` is a file descriptor, the behavior is similar to calling fs.write() directly (which is recommended).
+
+##### Usage
+
+```javascript
+import ImageCharts from '<%= pkg.node.name %>';
+
+const chart_path = '/tmp/chart.png';
+
+ImageCharts()
+.cht('bvg') // vertical bar chart
+.chs('300x300') // 300px x 300px
+.chd('a:60,40') // 2 data points: 60 and 40
+.toFile(chart_path)
+.then(() => console.log('Image chart written at %s', chart_path))
+
 ```
 
 - _[Back to usage](#usage)_
@@ -185,14 +215,14 @@ console.log(chart_url); // https://image-charts.com/chart?cht=bvg&chs=300x300&ch
 ----------------------------------------------------------------------------------------------
 
 <a name="tobuffer"></a>
-#### `toBuffer()` : [`Buffer`](https://nodejs.org/api/buffer.html)
+#### `toBuffer()` : [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)<[`Buffer`](https://nodejs.org/api/buffer.html)>
 
 > Do a request to Image-Charts API with current configuration and yield a promise of a NodeJS buffer
 
 ##### Usage
 
 ```javascript
-import ImageCharts from 'image-charts';
+import ImageCharts from '<%= pkg.node.name %>';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
@@ -201,6 +231,7 @@ const chart_url = ImageCharts()
 .toBuffer(); // download chart image as a buffer
 
 console.log(chart_url); // <Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
+
 ```
 
 - _[Back to usage](#usage)_
@@ -216,7 +247,7 @@ console.log(chart_url); // <Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
 ##### Usage
 
 ```javascript
-import ImageCharts from 'image-charts';
+import ImageCharts from '<%= pkg.node.name %>';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
@@ -225,6 +256,7 @@ const chart_url = ImageCharts()
 .toDataURI(); // download chart image and generate a data URI string
 
 console.log(chart_url); // "data:image/png;base64,iVBORw0KGgo...
+
 ```
 
 - _[Back to usage](#usage)_
@@ -246,20 +278,21 @@ These two parameters are mandatory to sign your request and remove the watermark
 Replace both values in the code example below:
 
 ```javascript
-import ImageCharts from 'image-charts';
+import ImageCharts from '<%= pkg.node.name %>';
 
 const chart_url = ImageCharts({secret: 'SECRET_KEY'})
-                  .icac('ACCOUNT_ID')
-                  .cht('p3') // pie chart
-                  .chs('700x190') // 700px x 190px
-                  .chd('t:60,40') // 2 data points: 60 and 40
-                  .chl('Hello|World') // 1 label per pie slice : "Hello" and "World"
-                  .chf('ps0-0,lg,45,ffeb3b,0.2,f44336,1|ps0-1,lg,45,8bc34a,0.2,009688,1') // 1 gradient per pie slice
-                  .icretina('1') // enable paid-only features like high-resolution charts
-                  .toURL(); // get the whole (HMAC signed) URL
+.icac('ACCOUNT_ID')
+.cht('p3') // pie chart
+.chs('700x190') // 700px x 190px
+.chd('t:60,40') // 2 data points: 60 and 40
+.chl('Hello|World') // 1 label per pie slice : "Hello" and "World"
+.chf('ps0-0,lg,45,ffeb3b,0.2,f44336,1|ps0-1,lg,45,8bc34a,0.2,009688,1') // 1 gradient per pie slice
+.icretina('1') // enable paid-only features like high-resolution charts
+.toURL(); // get the whole (HMAC signed) URL
 
 console.log(chart_url);
 // https://image-charts.com/chart?chd=t%3A60%2C40&chf=ps0-0%2Clg%2C45%2Cffeb3b%2C0.2%2Cf44336%2C1%7Cps0-1%2Clg%2C45%2C8bc34a%2C0.2%2C009688%2C1&chl=Hello%7CWorld&chs=700x190&cht=p3&icac=fgribreau&icretina=1&ichm=652f09953663bce161ac612af5f310f5abf7151b55337ef2a97e5e1cd559c8fb
+
 ```
 
 <p align="center"><img src="https://image-charts.com/chart?chd=t%3A60%2C40&chf=ps0-0%2Clg%2C45%2Cffeb3b%2C0.2%2Cf44336%2C1%7Cps0-1%2Clg%2C45%2C8bc34a%2C0.2%2C009688%2C1&chl=Hello%7CWorld&chs=700x190&cht=p3&icac=fgribreau&icretina=1&ichm=652f09953663bce161ac612af5f310f5abf7151b55337ef2a97e5e1cd559c8fb"/></p>

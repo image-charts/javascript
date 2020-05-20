@@ -1,5 +1,6 @@
 const qs = require('querystring');
 const crypto = require('crypto');
+const fs = require('fs');
 const fetch = require('node-fetch');
 const packageJson = require('./package.json')
 
@@ -486,8 +487,10 @@ ImageCharts.prototype.icretina = function(value) {
 ImageCharts.prototype.toURL = function () {
   const url = new URL(`${this._protocol}://${this._host}`);
 
-  if(this._pathname) {url.pathname = this._pathname}
+  /* istanbul ignore else */
   if(this._port) {url.port = this._port}
+
+  url.pathname = this._pathname;
 
   const searchParams = new URLSearchParams(this._query);
 
@@ -520,9 +523,12 @@ ImageCharts.prototype.toBuffer = function () {
       const validation_message = res.headers.get('x-ic-error-validation');
       const validation_code = res.headers.get('x-ic-error-code');
       let message = validation_message ? JSON.parse(validation_message).map(x => x.message).join('\n').trim() : '';
+      /* istanbul ignore next */
       message = message.length > 0 ? message : validation_code;
+      /* istanbul ignore next */
       message = message.length > 0 ? message : res.statusText;
       const err = new Error(message);
+      /* istanbul ignore next */
       err.code = validation_code || res.statusText;
       err.statusCode = res.statusCode;
       err._response = res;
@@ -532,6 +538,15 @@ ImageCharts.prototype.toBuffer = function () {
   })
 };
 
+/**
+ * Do a request to Image-Charts API with current configuration and writes the content inside a file
+ * @return {Promise}
+ */
+ImageCharts.prototype.toFile = function (file) {
+  return this.toBuffer().then(buffer =>
+    new Promise((resolve, reject) =>
+      fs.writeFile(file, buffer, (err) => err ? reject(err) : resolve())))
+};
 
 /**
  * Do a request to Image-Charts API with current configuration and yield a promise of a base64 encoded data URI
