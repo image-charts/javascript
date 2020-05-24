@@ -2,7 +2,7 @@
 
 [![NPM VERSION](http://img.shields.io/npm/v/image-charts.svg?style=flat)](https://www.npmjs.org/package/image-charts)
 [![maintainability](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/maintainability)](https://codeclimate.com/github/image-charts/javascript/maintainability)
-[![test coverage](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/test_coverage)](https://codeclimate.com/github/image-charts/javascript/test_coverage)
+<!--[![test coverage](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/test_coverage)](https://codeclimate.com/github/image-charts/javascript/test_coverage)-->
 
 [![DEPENDENCY STATUS](http://img.shields.io/david/image-charts/javascript.svg?style=flat)](https://david-dm.org/image-charts/javascript)
 [![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/image-charts/javascript.svg?style=flat)](https://david-dm.org/image-charts/javascript#info=devDependencies)
@@ -168,7 +168,7 @@ opt = {
 ##### Usage
 
 ```javascript
-import ImageCharts from '<%= pkg.node.name %>';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
@@ -197,7 +197,7 @@ console.log(chart_url); // https://image-charts.com/chart?cht=bvg&chs=300x300&ch
 ##### Usage
 
 ```javascript
-import ImageCharts from '<%= pkg.node.name %>';
+import ImageCharts from 'image-charts';
 
 const chart_path = '/tmp/chart.png';
 
@@ -223,7 +223,7 @@ ImageCharts()
 ##### Usage
 
 ```javascript
-import ImageCharts from '<%= pkg.node.name %>';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
@@ -248,7 +248,7 @@ console.log(chart_url); // <Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
 ##### Usage
 
 ```javascript
-import ImageCharts from '<%= pkg.node.name %>';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts()
 .cht('bvg') // vertical bar chart
@@ -279,7 +279,7 @@ These two parameters are mandatory to sign your request and remove the watermark
 Replace both values in the code example below:
 
 ```javascript
-import ImageCharts from '<%= pkg.node.name %>';
+import ImageCharts from 'image-charts';
 
 const chart_url = ImageCharts({secret: 'SECRET_KEY'})
 .icac('ACCOUNT_ID')
