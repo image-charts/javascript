@@ -1,4 +1,4 @@
-## Official [image-charts](https://image-charts.com/) JavaScript/NodeJS library
+[![image charts javascript library logo](./logo.jpg)](#getting-started)
 
 [![NPM VERSION](http://img.shields.io/npm/v/image-charts.svg?style=flat)](https://www.npmjs.org/package/image-charts)
 [![maintainability](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/maintainability)](https://codeclimate.com/github/image-charts/javascript/maintainability)
@@ -16,8 +16,6 @@
 Official [Image Charts](https://image-charts.com/) API client.
 Generate URLs of static image charts.
 Embed them everywhere in emails, pdf reports, chat bots...!
-
-[![image charts javascript library logo](./logo.jpg)](#getting-started)
 
 ### Getting started
 
