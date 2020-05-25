@@ -394,6 +394,28 @@ declare module 'node-image-charts' {
          */
         icretina(value: string): this;
         
+        /**
+         * Background color for QR Codes
+         * [Reference documentation]{@link https://documentation.image-charts.com/qr-codes/#background-color}
+         * @example
+         * const chart = ImageCharts().icqrb("FFFFFF");
+         * @default "FFFFFF"
+         * @param {string} value - Background color for QR Codes
+         * @return {ImageCharts.constructor}
+         */
+        icqrb(value: string): this;
+        
+        /**
+         * Foreground color for QR Codes
+         * [Reference documentation]{@link https://documentation.image-charts.com/qr-codes/#foreground-color}
+         * @example
+         * const chart = ImageCharts().icqrf("000000");
+         * @default "000000"
+         * @param {string} value - Foreground color for QR Codes
+         * @return {ImageCharts.constructor}
+         */
+        icqrf(value: string): this;
+        
 
         /**
          * Get the full Image-Charts API url (signed and encoded if necessary)

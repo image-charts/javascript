@@ -479,6 +479,32 @@ ImageCharts.prototype.icretina = function(value) {
   return this._clone('icretina', value);
 };
 
+/**
+  * Background color for QR Codes
+  * [Reference documentation]{@link https://documentation.image-charts.com/qr-codes/#background-color}
+  * @example
+  * const chart = ImageCharts().icqrb("FFFFFF");
+  * @default "FFFFFF"
+  * @param {string} value - Background color for QR Codes
+  * @return {ImageCharts.constructor}
+  */
+ImageCharts.prototype.icqrb = function(value) {
+  return this._clone('icqrb', value);
+};
+
+/**
+  * Foreground color for QR Codes
+  * [Reference documentation]{@link https://documentation.image-charts.com/qr-codes/#foreground-color}
+  * @example
+  * const chart = ImageCharts().icqrf("000000");
+  * @default "000000"
+  * @param {string} value - Foreground color for QR Codes
+  * @return {ImageCharts.constructor}
+  */
+ImageCharts.prototype.icqrf = function(value) {
+  return this._clone('icqrf', value);
+};
+
 
 /**
   * Get the full Image-Charts API url (signed and encoded if necessary)

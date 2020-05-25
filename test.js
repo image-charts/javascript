@@ -29,15 +29,17 @@ describe("ImageCharts", () => {
     });
 
     it("exposes parameters and use them", () => {
-      let ic = ImageCharts();
-      const chart = Object.keys(ic.__proto__)
+      const ic = ImageCharts();
+      const {chart, query} = Object.keys(ic.__proto__)
         .filter((method) => method.startsWith("c") || method.startsWith("ic"))
-        .reduce((ic, method_name) => {
-          return ic[method_name]("plop");
-        }, ic);
+        .reduce((m, method_name) => {
+          m.chart = m.chart[method_name]("plop");
+          m.query.push(`${method_name}=plop`);
+          return m;
+        }, {chart: ic, query: []});
 
       expect(chart.toURL()).toMatchInlineSnapshot(
-        `"https://image-charts.com/chart?cht=plop&chd=plop&chds=plop&choe=plop&chld=plop&chxr=plop&chof=plop&chs=plop&chdl=plop&chdls=plop&chg=plop&chco=plop&chtt=plop&chts=plop&chxt=plop&chxl=plop&chxs=plop&chm=plop&chls=plop&chl=plop&chma=plop&chdlp=plop&chf=plop&chan=plop&chli=plop&icac=plop&ichm=plop&icff=plop&icfs=plop&iclocale=plop&icretina=plop"`
+        `"https://image-charts.com/chart?${query.join('&')}"`
       );
     });
 

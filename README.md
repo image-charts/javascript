@@ -100,6 +100,8 @@ pie.toBuffer(); // Promise<Buffer> : Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
    - __[icfs(value) - Default font style for all text](#icfs)__
    - __[iclocale(value) - localization (ISO 639-1)](#iclocale)__
    - __[icretina(value) - retina mode](#icretina)__
+   - __[icqrb(value) - Background color for QR Codes](#icqrb)__
+   - __[icqrf(value) - Foreground color for QR Codes](#icqrf)__
 
 ----------------------------------------------------------------------------------------------
 
@@ -1016,6 +1018,48 @@ Other allowed values are: <pre>Acme | Actor | Adamina | Advent Pro | Aguafina Sc
 
 
 
+
+- _[Back to Getting started](#getting-started)_
+- _[Back to ToC](#table-of-contents)_
+
+
+
+----------------------------------------------------------------------------------------------
+
+<a name="icqrb"></a>
+#### `icqrb( value )` : [`ImageCharts`](#constructor)
+
+> Background color for QR Codes
+
+> [Reference](https://documentation.image-charts.com/qr-codes/#background-color)
+
+
+
+##### Usage
+
+
+<a href="https://editor.image-charts.com/#https:/image-charts.com/chart?chd=a%3A30010%2C-30000%2C50000%2C80000%2C20000&chdl=Income&chf=b0%2Clg%2C90%2CEA469EFF%2C1%2C03A9F47C%2C0.4&chl=2014%7C2015%7C2016%7C2017%7C2018&chs=700x300&cht=bvs&chxt=y&icqrb=FFFFFF" target="_blank"><pre>.icqrb("FFFFFF")</pre></a>
+
+- _[Back to Getting started](#getting-started)_
+- _[Back to ToC](#table-of-contents)_
+
+
+
+----------------------------------------------------------------------------------------------
+
+<a name="icqrf"></a>
+#### `icqrf( value )` : [`ImageCharts`](#constructor)
+
+> Foreground color for QR Codes
+
+> [Reference](https://documentation.image-charts.com/qr-codes/#foreground-color)
+
+
+
+##### Usage
+
+
+<a href="https://editor.image-charts.com/#https:/image-charts.com/chart?chd=a%3A30010%2C-30000%2C50000%2C80000%2C20000&chdl=Income&chf=b0%2Clg%2C90%2CEA469EFF%2C1%2C03A9F47C%2C0.4&chl=2014%7C2015%7C2016%7C2017%7C2018&chs=700x300&cht=bvs&chxt=y&icqrf=000000" target="_blank"><pre>.icqrf("000000")</pre></a>
 
 - _[Back to Getting started](#getting-started)_
 - _[Back to ToC](#table-of-contents)_
