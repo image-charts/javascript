@@ -17,7 +17,7 @@ Official [Image Charts](https://image-charts.com/) API client.
 Generate URLs of static image charts.
 Embed them everywhere in emails, pdf reports, chat bots...!
 
-![image charts javascript library logo](./logo.jpg)
+[![image charts javascript library logo](./logo.jpg)](#getting-started)
 
 ### Getting started
 
