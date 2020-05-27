@@ -1,12 +1,12 @@
 [![image charts javascript library logo](./logo.jpg)](#getting-started)
 
 [![NPM VERSION](http://img.shields.io/npm/v/image-charts.svg?style=flat)](https://www.npmjs.org/package/image-charts)
-[![maintainability](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/maintainability)](https://codeclimate.com/github/image-charts/WILL BE SET LATER/maintainability)
-<!--[![test coverage](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/test_coverage)](https://codeclimate.com/github/image-charts/WILL BE SET LATER/test_coverage)-->
+[![maintainability](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/maintainability)](https://codeclimate.com/github/image-charts/javascript/maintainability)
+<!--[![test coverage](https://api.codeclimate.com/v1/badges/8ae1208964cbea39150a/test_coverage)](https://codeclimate.com/github/image-charts/javascript/test_coverage)-->
 
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/image-charts)
-![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/image-charts/WILL BE SET LATER)
-![Code Climate issues](https://img.shields.io/codeclimate/issues/image-charts/WILL BE SET LATER)
+![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/image-charts/javascript)
+![Code Climate issues](https://img.shields.io/codeclimate/issues/image-charts/javascript)
 ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/image-charts)
 
 <!--
