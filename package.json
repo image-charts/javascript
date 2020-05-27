@@ -1,6 +1,6 @@
 {
   "name": "image-charts",
-  "version": "5.1.1",
+  "version": "5.1.0",
   "description": "Official Image-Charts.com API client library",
   "main": "lib.js",
   "types": "types.d.ts",
