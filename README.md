@@ -93,6 +93,7 @@ pie.toBuffer(); // Promise<Buffer> : Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
    - __[chma(value) - chart margins](#chma)__
    - __[chdlp(value) - Position of the legend and order of the legend entries](#chdlp)__
    - __[chf(value) - Background Fills](#chf)__
+   - __[chbr(value) - Bar corner radius. Display bars with rounded corner.](#chbr)__
    - __[chan(value) - gif configuration](#chan)__
    - __[chli(value) - doughnut chart inside label](#chli)__
    - __[icac(value) - image-charts enterprise `account_id`](#icac)__
@@ -844,6 +845,28 @@ label1|label2")</pre></a>
 
 
 <a href="https://editor.image-charts.com/#https:/image-charts.com/chart?chd=a%3A30010%2C-30000%2C50000%2C80000%2C20000&chdl=Income&chf=b0%2Clg%2C0%2Cf44336%2C0.3%2C03a9f4%2C0.8&chl=2014%7C2015%7C2016%7C2017%7C2018&chs=700x300&cht=bvs&chxt=y" target="_blank"><pre>.chf("b0,lg,0,f44336,0.3,03a9f4,0.8")</pre></a>
+
+- _[Back to Getting started](#getting-started)_
+- _[Back to ToC](#table-of-contents)_
+
+
+
+----------------------------------------------------------------------------------------------
+
+<a name="chbr"></a>
+#### `chbr( value )` : [`ImageCharts`](#constructor)
+
+> Bar corner radius. Display bars with rounded corner.
+
+> [Reference](https://documentation.image-charts.com/bar-charts/#rounded-bar)
+
+
+
+##### Usage
+
+
+<a href="https://editor.image-charts.com/#https:/image-charts.com/chart?chd=a%3A30010%2C-30000%2C50000%2C80000%2C20000&chdl=Income&chf=b0%2Clg%2C90%2CEA469EFF%2C1%2C03A9F47C%2C0.4&chl=2014%7C2015%7C2016%7C2017%7C2018&chs=700x300&cht=bvs&chxt=y&chbr=5" target="_blank"><pre>.chbr("5")</pre></a>
+<a href="https://editor.image-charts.com/#https:/image-charts.com/chart?chd=a%3A30010%2C-30000%2C50000%2C80000%2C20000&chdl=Income&chf=b0%2Clg%2C90%2CEA469EFF%2C1%2C03A9F47C%2C0.4&chl=2014%7C2015%7C2016%7C2017%7C2018&chs=700x300&cht=bvs&chxt=y&chbr=10" target="_blank"><pre>.chbr("10")</pre></a>
 
 - _[Back to Getting started](#getting-started)_
 - _[Back to ToC](#table-of-contents)_

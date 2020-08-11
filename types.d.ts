@@ -304,6 +304,18 @@ declare module 'node-image-charts' {
         chf(value: string): this;
         
         /**
+         * Bar corner radius. Display bars with rounded corner.
+         * [Reference documentation]{@link https://documentation.image-charts.com/bar-charts/#rounded-bar}
+         * @example
+         * const chart = ImageCharts().chbr("5");
+         * const chart = ImageCharts().chbr("10");
+         * 
+         * @param {string} value - Bar corner radius. Display bars with rounded corner.
+         * @return {ImageCharts.constructor}
+         */
+        chbr(value: string): this;
+        
+        /**
          * gif configuration
          * [Reference documentation]{@link https://documentation.image-charts.com/reference/animation/}
          * @example

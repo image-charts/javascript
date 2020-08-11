@@ -373,6 +373,20 @@ ImageCharts.prototype.chf = function(value) {
 };
 
 /**
+  * Bar corner radius. Display bars with rounded corner.
+  * [Reference documentation]{@link https://documentation.image-charts.com/bar-charts/#rounded-bar}
+  * @example
+  * const chart = ImageCharts().chbr("5");
+  * const chart = ImageCharts().chbr("10");
+  * 
+  * @param {string} value - Bar corner radius. Display bars with rounded corner.
+  * @return {ImageCharts.constructor}
+  */
+ImageCharts.prototype.chbr = function(value) {
+  return this._clone('chbr', value);
+};
+
+/**
   * gif configuration
   * [Reference documentation]{@link https://documentation.image-charts.com/reference/animation/}
   * @example
