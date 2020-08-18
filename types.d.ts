@@ -270,6 +270,18 @@ declare module 'node-image-charts' {
         chl(value: string): this;
         
         /**
+         * Position and style of labels on data
+         * [Reference documentation]{@link https://documentation.image-charts.com/reference/chart-label/}
+         * @example
+         * const chart = ImageCharts().chlps("align,top|offset,10|color,FF00FF");
+         * const chart = ImageCharts().chlps("align,top|offset,10|color,FF00FF");
+         * 
+         * @param {string} value - Position and style of labels on data
+         * @return {ImageCharts.constructor}
+         */
+        chlps(value: string): this;
+        
+        /**
          * chart margins
          * [Reference documentation]{@link https://documentation.image-charts.com/reference/chart-margin/}
          * @example
