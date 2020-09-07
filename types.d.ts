@@ -140,6 +140,8 @@ declare module 'node-image-charts' {
          * @example
          * const chart = ImageCharts().chg("1,1");
          * const chart = ImageCharts().chg("0,1,1,5");
+         * const chart = ImageCharts().chg("1,1,FF00FF");
+         * const chart = ImageCharts().chg("1,1,1,1,CECECE");
          * 
          * @param {string} value - Solid or dotted grid lines
          * @return {ImageCharts.constructor}
