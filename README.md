@@ -1042,10 +1042,13 @@ Other allowed values are: <pre>Acme | Actor | Adamina | Advent Pro | Aguafina Sc
 
 
 
-##### Usage
-
-
+##### Allowed values: 
+<a href="https://editor.image-charts.com/#https:/image-charts.com/chart?chd=a%3A30010%2C-30000%2C50000%2C80000%2C20000&chdl=Income&chf=b0%2Clg%2C90%2CEA469EFF%2C1%2C03A9F47C%2C0.4&chl=2014%7C2015%7C2016%7C2017%7C2018&chs=700x300&cht=bvs&chxt=y&iclocale=fr" target="_blank"><pre>.iclocale("fr")</pre></a>
+<a href="https://editor.image-charts.com/#https:/image-charts.com/chart?chd=a%3A30010%2C-30000%2C50000%2C80000%2C20000&chdl=Income&chf=b0%2Clg%2C90%2CEA469EFF%2C1%2C03A9F47C%2C0.4&chl=2014%7C2015%7C2016%7C2017%7C2018&chs=700x300&cht=bvs&chxt=y&iclocale=de" target="_blank"><pre>.iclocale("de")</pre></a>
 <a href="https://editor.image-charts.com/#https:/image-charts.com/chart?chd=a%3A30010%2C-30000%2C50000%2C80000%2C20000&chdl=Income&chf=b0%2Clg%2C90%2CEA469EFF%2C1%2C03A9F47C%2C0.4&chl=2014%7C2015%7C2016%7C2017%7C2018&chs=700x300&cht=bvs&chxt=y&iclocale=en" target="_blank"><pre>.iclocale("en")</pre></a>
+
+
+
 
 - _[Back to Getting started](#getting-started)_
 - _[Back to ToC](#table-of-contents)_
