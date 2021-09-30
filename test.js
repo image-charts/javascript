@@ -70,7 +70,9 @@ describe("ImageCharts", () => {
           .chs("100x100")
           .icac("test_fixture")
           .toBuffer()
-      ).rejects.toMatchInlineSnapshot(`[Error: IC_MISSING_ENT_PARAMETER]`));
+      ).rejects.toMatchInlineSnapshot(
+        `[Error: The \`icac\` (ACCOUNT_ID) and \`ichm\` (HMAC-SHA256 request signature) query parameters must both be defined if specified. [Learn more](https://bit.ly/HMACENT)]`
+      ));
 
     it("rejects if timeout is reached", () =>
       expect(
