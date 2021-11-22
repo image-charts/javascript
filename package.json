@@ -7,7 +7,9 @@
   "scripts": {
     "test": "jest --coverage ./test.js",
     "@comment updr": "-r basic : Uses console.log for output, no need for a TTY (e.g when running on CI) => https://www.npmjs.com/package/updtr#--reporter--r",
-    "updtr": "updtr -r basic"
+    "updtr": "updtr -r basic",
+    "prepare": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "engines": {
     "node": ">12"
@@ -47,7 +49,8 @@
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "dependencies": {
-    "requestretry": "^6.0.0"
+    "requestretry": "^6.0.0",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "updtr": "3.1.0",
@@ -89,5 +92,6 @@
   "homepage": "https://github.com/image-charts/javascript#readme",
   "contributors": [
     "geopic (https://twitter.com/geopic1)"
-  ]
+  ],
+  "snyk": true
 }
