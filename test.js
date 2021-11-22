@@ -74,6 +74,17 @@ describe("ImageCharts", () => {
         `[Error: The \`icac\` (ACCOUNT_ID) and \`ichm\` (HMAC-SHA256 request signature) query parameters must both be defined if specified. [Learn more](https://bit.ly/HMACENT)]`
       ));
 
+    it("retry if there is a timeout reached", () =>
+      ImageCharts({timeout: 1}) // 1ms
+        .cht("p")
+        .chd("t:1,2,3")
+        .chs("100x100")
+        .chan("1200")
+        .toBuffer()
+        .catch(err => {
+          expect(err.attempts).toBe(3);
+        }));
+
     it("rejects if timeout is reached", () =>
       expect(
         ImageCharts({timeout: 1}) // 1ms
@@ -83,8 +94,9 @@ describe("ImageCharts", () => {
           .chan("1200")
           .toBuffer()
       ).rejects.toMatchInlineSnapshot(
-        `[FetchError: network timeout at: https://image-charts.com/chart?cht=p&chd=t%3A1%2C2%2C3&chs=100x100&chan=1200]`
+        `[Error: ETIMEDOUT]`
       ));
+
 
     it("works", () =>
       expect(

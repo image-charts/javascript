@@ -1,7 +1,7 @@
 const qs = require('querystring');
 const crypto = require('crypto');
 const fs = require('fs');
-const fetch = require('node-fetch');
+const request = require('requestretry');
 const packageJson = require('./package.json')
 
 /*
@@ -564,36 +564,41 @@ ImageCharts.prototype.toURL = function () {
 
 /**
  * Do a request to Image-Charts API with current configuration and yield a promise of a NodeJS buffer
+ * @param {Object} options - override default retry behavior
  * @return {Promise<Buffer>} binary image represented as a NodeJS Buffer wrapped inside a promise
  */
-ImageCharts.prototype.toBuffer = function () {
-  const _options = {
+ImageCharts.prototype.toBuffer = function (options) {
+  const _options = Object.assign({}, {
+    // request retry
+    maxAttempts: 3,   // retry 3 times
+    retryDelay: 2000,  // wait 2s before trying again
+    retryStrategy: request.RetryStrategies.HTTPOrNetworkError // retry on 5xx or network errors
+  }, options || {}, {
     timeout: this._timeout,
-    headers: { 'User-Agent': `javascript-image-charts/${packageJson.version}` + (this._query.icac ? ' ' + `(${this._query.icac})` : '') }
-  };
-  return fetch(this.toURL(), _options).then(res => {
-    return res.buffer().then(buff => {
-      if(res.status >= 200 && res.status < 300){
-        buff._response = res;
-        buff._request = _options;
-        return buff;
-      }
+    url: this.toURL(),
+    headers: { 'User-Agent': `javascript-image-charts/${packageJson.version}` + (this._query.icac ? ' ' + `(${this._query.icac})` : '') },
+    encoding: null, // make response body to Buffer.
+  });
 
-      const validation_message = res.headers.get('x-ic-error-validation');
-      const validation_code = res.headers.get('x-ic-error-code');
-      let message = validation_message ? JSON.parse(validation_message).map(x => x.message).join('\n').trim() : '';
-      /* istanbul ignore next */
-      message = message.length > 0 ? message : validation_code;
-      /* istanbul ignore next */
-      message = message.length > 0 ? message : res.statusText;
-      const err = new Error(message);
-      /* istanbul ignore next */
-      err.code = validation_code || res.statusText;
-      err.statusCode = res.statusCode;
-      err._response = res;
-      err._request = _options;
-      return Promise.reject(err);
-    });
+  return request(_options).then(res => {
+    if(res.statusCode >= 200 && res.statusCode < 300){
+        res.body._response = res;
+        res.body._request = _options;
+        return res.body;
+    }
+
+    const validation_message = res.headers['x-ic-error-validation']; // undefined || string
+    const validation_code = res.headers['x-ic-error-code']; // undefined || string
+    let message = validation_message ? JSON.parse(validation_message).map(x => x.message).join('\n').trim() : '';
+    /* istanbul ignore next */
+    message = message.length > 0 ? message : validation_code ? validation_code : res.statusMessage;
+    const err = new Error(message);
+    /* istanbul ignore next */
+    err.code = validation_code || res.statusMessage;
+    err.statusCode = res.statusCode;
+    err._response = res;
+    err._request = _options;
+    return Promise.reject(err);
   })
 };
 
