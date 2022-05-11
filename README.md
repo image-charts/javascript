@@ -5,9 +5,6 @@
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/image-charts/javascript)
 ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/image-charts/javascript)
 
-
-![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/image-charts)
-
 <!--
 [![NPM MONTHLY](http://img.shields.io/npm/dm/image-charts.svg?style=flat)](http://npm-stat.com/charts.html?package=image-charts)
 ![NPM YEARLY](https://img.shields.io/npm/dy/image-charts.svg)
