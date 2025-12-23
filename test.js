@@ -5,8 +5,8 @@ import fs from 'fs';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 describe("ImageCharts", () => {
-  // Add 500ms delay between tests to avoid 429 rate limiting
-  beforeEach(() => delay(500));
+  // Add 3000ms delay between tests to avoid 429 rate limiting
+  beforeEach(() => delay(3000));
   it("works in ES6", () => {
     expect(typeof ImageCharts).toMatchInlineSnapshot(`"function"`);
   });
