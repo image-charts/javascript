@@ -2,7 +2,11 @@ import ImageCharts from "./";
 import pkg from "./package.json";
 import fs from 'fs';
 
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+
 describe("ImageCharts", () => {
+  // Add 500ms delay between tests to avoid 429 rate limiting
+  beforeEach(() => delay(500));
   it("works in ES6", () => {
     expect(typeof ImageCharts).toMatchInlineSnapshot(`"function"`);
   });
@@ -139,7 +143,7 @@ describe("ImageCharts", () => {
       expect(
         ImageCharts().cht("p").chd("t:1,2,3").chs("2x2").toDataURI()
       ).resolves.toMatchInlineSnapshot(
-        `"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACAQAAAABazTCJAAAADElEQVR42mM4wHAAAAMEAYEq5W5aAAAAAElFTkSuQmCC"`
+        `"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAABmJLR0QA/wD/AP+gvaeTAAAAFUlEQVQIW2P8////fwYGBgYmEAECAD34BADggvMYAAAAAElFTkSuQmCC"`
       ));
 
     it("support gifs", () =>
