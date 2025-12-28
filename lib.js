@@ -8,9 +8,9 @@ const packageJson = require('./package.json')
  * Image-Charts URL builder
  * @typedef ImageCharts
  */
-function ImageCharts({secret, protocol, host, port, timeout} = {}, previous = {}) {
+function ImageCharts({secret, protocol, host, port, timeout, userAgent} = {}, previous = {}) {
   if (!(this instanceof ImageCharts)) {
-    return new ImageCharts({secret, protocol, host, port, timeout}, previous);
+    return new ImageCharts({secret, protocol, host, port, timeout, userAgent}, previous);
   }
   this._protocol = protocol || 'https';
   this._host = host || 'image-charts.com';
@@ -19,6 +19,7 @@ function ImageCharts({secret, protocol, host, port, timeout} = {}, previous = {}
   this._timeout = typeof timeout !== 'undefined' ? timeout : 5000;
   this._query = {};
   this._secret = secret;
+  this._userAgent = userAgent;
   Object.assign(this, previous);
 }
 
@@ -576,7 +577,7 @@ ImageCharts.prototype.toBuffer = function (options) {
   }, options || {}, {
     timeout: this._timeout,
     url: this.toURL(),
-    headers: { 'User-Agent': `javascript-image-charts/${packageJson.version}` + (this._query.icac ? ' ' + `(${this._query.icac})` : '') },
+    headers: { 'User-Agent': this._userAgent || (`javascript-image-charts/${packageJson.version}` + (this._query.icac ? ' ' + `(${this._query.icac})` : '')) },
     encoding: null, // make response body to Buffer.
   });
 

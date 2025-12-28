@@ -4,6 +4,17 @@ import fs from 'fs';
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
+// CI user-agent to bypass rate limiting (set in CI environment)
+const CI_USER_AGENT = process.env.IMAGE_CHARTS_USER_AGENT;
+
+// Helper to create ImageCharts with CI user-agent if set
+const createImageCharts = (opts = {}) => {
+  if (CI_USER_AGENT) {
+    opts.userAgent = CI_USER_AGENT;
+  }
+  return ImageCharts(opts);
+};
+
 describe("ImageCharts", () => {
   // Add 3000ms delay between tests to avoid 429 rate limiting
   beforeEach(() => delay(3000));
@@ -63,12 +74,12 @@ describe("ImageCharts", () => {
   describe("toBuffer", () => {
     it("rejects if a chs is not defined", () =>
       expect(
-        ImageCharts().cht("p").chd("t:1,2,3").toBuffer()
+        createImageCharts().cht("p").chd("t:1,2,3").toBuffer()
       ).rejects.toMatchInlineSnapshot(`[Error: "chs" is required]`));
 
     it("rejects if a icac is defined without ichm", () =>
       expect(
-        ImageCharts()
+        createImageCharts()
           .cht("p")
           .chd("t:1,2,3")
           .chs("100x100")
@@ -104,7 +115,7 @@ describe("ImageCharts", () => {
 
     it("works", () =>
       expect(
-        ImageCharts().cht("p").chd("t:1,2,3").chs("2x2").toBuffer()
+        createImageCharts().cht("p").chd("t:1,2,3").chs("2x2").toBuffer()
       ).resolves.toMatchSnapshot());
 
     it("forwards package_name/version as user-agent", () =>
@@ -136,18 +147,18 @@ describe("ImageCharts", () => {
   describe("toDataURI", () => {
     it("rejects if there was an error", () =>
       expect(
-        ImageCharts().cht("p").chd("t:1,2,3").toDataURI()
+        createImageCharts().cht("p").chd("t:1,2,3").toDataURI()
       ).rejects.toMatchInlineSnapshot(`[Error: "chs" is required]`));
 
     it("works", () =>
       expect(
-        ImageCharts().cht("p").chd("t:1,2,3").chs("2x2").toDataURI()
+        createImageCharts().cht("p").chd("t:1,2,3").chs("2x2").toDataURI()
       ).resolves.toMatchInlineSnapshot(
         `"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAABmJLR0QA/wD/AP+gvaeTAAAAFUlEQVQIW2P8////fwYGBgYmEAECAD34BADggvMYAAAAAElFTkSuQmCC"`
       ));
 
     it("support gifs", () =>
-      ImageCharts()
+      createImageCharts()
         .cht("p")
         .chd("t:1,2,3")
         .chan("100")
@@ -163,19 +174,19 @@ describe("ImageCharts", () => {
   describe("toFile", () => {
     it("rejects if there was an error", () =>
       expect(
-        ImageCharts().cht("p").chd("t:1,2,3").toFile('/tmp/chart.png')
+        createImageCharts().cht("p").chd("t:1,2,3").toFile('/tmp/chart.png')
       ).rejects.toMatchInlineSnapshot(`[Error: "chs" is required]`));
 
     it("rejects when the path is invalid", () => {
       const file_path = '/__invalid_path/chart.png';
-      return expect(ImageCharts()
+      return expect(createImageCharts()
         .cht("bvg").chd("t:1,2,3").chs("40x40")
         .toFile(file_path)).rejects.toBeDefined();
     });
 
     it("works", () => {
       const file_path = '/tmp/chart.png';
-      return ImageCharts()
+      return createImageCharts()
         .cht("bvg").chd("t:1,2,3").chs("40x40")
         .toFile(file_path)
         .then(() =>
