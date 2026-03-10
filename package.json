@@ -1,6 +1,6 @@
 {
   "name": "image-charts",
-  "version": "6.1.59",
+  "version": "6.1.58",
   "description": "Official Image-Charts.com API client library",
   "main": "lib.js",
   "types": "types.d.ts",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.29.0",
-    "babel-jest": "^30.2.0",
+    "babel-jest": "^30.3.0",
     "jest": "^26.0.1",
     "jest-junit": "^16.0.0",
     "npm-release": "^1.0.0",
