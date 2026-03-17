@@ -51,7 +51,7 @@
     "requestretry": "^8.0.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
     "babel-jest": "^30.3.0",
     "jest": "^26.0.1",
     "jest-junit": "^16.0.0",
