@@ -3,3 +3,4 @@ coverage
 .env
 *.log
 .jest_cache
+.DS_Store
