@@ -90,5 +90,8 @@
   "homepage": "https://github.com/image-charts/javascript#readme",
   "contributors": [
     "geopic (https://twitter.com/geopic1)"
-  ]
+  ],
+  "overrides": {
+    "json-schema": "0.4.0"
+  }
 }
