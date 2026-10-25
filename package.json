@@ -12,11 +12,21 @@
   "engines":{
     "node": ">12"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^22.18.0 || >=24.11.0",
+      "onFail": "warn"
+    }
+  },
   "jest": {
     "verbose": true,
     "cacheDirectory": ".jest_cache",
     "testEnvironment": "node",
     "testTimeout": 5000,
+    "snapshotFormat": {
+      "printBasicPrototype": true
+    },
     "coverageDirectory": "coverage",
     "moduleFileExtensions": [
       "js",
@@ -48,13 +58,17 @@
   "requestretry": "^8.0.0"
 },
   "devDependencies": {
-  "@babel/preset-env": "^7.29.7",
+  "@babel/core": "^8.0.0",
+  "@babel/preset-env": "^8.0.0",
   "babel-jest": "^30.4.1",
-  "jest": "^26.0.1",
+  "jest": "^30.0.0",
   "jest-junit": "^17.0.0",
   "npm-release": "^1.0.0",
   "updtr": "^4.1.0"
 },
+  "overrides": {
+    "@babel/core": "$@babel/core"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/image-charts/javascript.git"
