@@ -9,13 +9,13 @@
     "@comment updr": "-r basic : Uses console.log for output, no need for a TTY (e.g when running on CI) => https://www.npmjs.com/package/updtr#--reporter--r",
     "updtr": "updtr -r basic"
   },
-  "engines": {
+  "engines":{
     "node": ">12"
   },
   "devEngines": {
     "runtime": {
       "name": "node",
-      "version": "6.1.253",
+      "version": "6.1.254",
       "onFail": "warn"
     }
   },
@@ -37,13 +37,10 @@
     ],
     "reporters": [
       "default",
-      [
-        "jest-junit",
-        {
-          "outputDirectory": "coverage",
-          "outputName": "junit.xml"
-        }
-      ]
+      ["jest-junit", {
+        "outputDirectory": "coverage",
+        "outputName": "junit.xml"
+      }]
     ],
     "coverageThreshold": {
       "global": {
@@ -57,18 +54,18 @@
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
   "license": "MIT",
   "dependencies": {
-    "request": "^2.88.2",
-    "requestretry": "^8.0.0"
-  },
+  "request": "^2.88.2",
+  "requestretry": "^8.0.0"
+},
   "devDependencies": {
-    "@babel/core": "^8.0.0",
-    "@babel/preset-env": "^8.0.0",
-    "babel-jest": "^30.4.1",
-    "jest": "^30.0.0",
-    "jest-junit": "^17.0.0",
-    "npm-release": "^1.0.0",
-    "updtr": "^4.1.0"
-  },
+  "@babel/core": "^8.0.0",
+  "@babel/preset-env": "^8.0.0",
+  "babel-jest": "^30.4.1",
+  "jest": "^30.0.0",
+  "jest-junit": "^17.0.0",
+  "npm-release": "^1.0.0",
+  "updtr": "^4.1.0"
+},
   "overrides": {
     "@babel/core": "$@babel/core"
   },
@@ -77,27 +74,27 @@
     "url": "git+ssh://git@github.com/image-charts/javascript.git"
   },
   "keywords": [
-    "front-end",
-    "backend-end",
-    "chart",
-    "charts",
-    "chart-url",
-    "image",
-    "imagecharts",
-    "png",
-    "jpg",
-    "jpeg",
-    "gif",
-    "animated",
-    "api",
-    "pie",
-    "bar",
-    "horizontal-bar",
-    "bubble",
-    "doughnut",
-    "line",
-    "polar"
-  ],
+  "front-end",
+  "backend-end",
+  "chart",
+  "charts",
+  "chart-url",
+  "image",
+  "imagecharts",
+  "png",
+  "jpg",
+  "jpeg",
+  "gif",
+  "animated",
+  "api",
+  "pie",
+  "bar",
+  "horizontal-bar",
+  "bubble",
+  "doughnut",
+  "line",
+  "polar"
+],
   "bugs": {
     "url": "https://github.com/image-charts/javascript/issues"
   },
