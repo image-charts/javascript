@@ -68,32 +68,32 @@ pie.toBuffer(); // Promise<Buffer> : Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
     - __[toBuffer()](#tobuffer)__
     - __[toDataURI()](#todatauri)__
    - __[cht(value) - Chart type](#cht)__
-   - __[chd(value) - chart data](#chd)__
+   - __[chd(value) - chart data. At most 1,000 series, chm line markers included, and 10,080 points in total.](#chd)__
    - __[chds(value) - data format with custom scaling](#chds)__
    - __[choe(value) - QRCode data encoding](#choe)__
    - __[chld(value) - QRCode error correction level and optional margin](#chld)__
    - __[chxr(value) - Axis data-range](#chxr)__
    - __[chof(value) - Image output format](#chof)__
    - __[chs(value) - Chart size (&lt;width&gt;x&lt;height&gt;)](#chs)__
-   - __[chdl(value) - Text for each series, to display in the legend](#chdl)__
+   - __[chdl(value) - Text for each series, to display in the legend. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.](#chdl)__
    - __[chdls(value) - Chart legend text and style](#chdls)__
-   - __[chg(value) - Solid or dotted grid lines](#chg)__
+   - __[chg(value) - Solid or dotted grid lines. A dashed grid needs at least 1 pixel per dash or space on average.](#chg)__
    - __[chco(value) - series colors](#chco)__
-   - __[chtt(value) - chart title](#chtt)__
+   - __[chtt(value) - chart title. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.](#chtt)__
    - __[chts(value) - chart title colors and font size](#chts)__
-   - __[chxt(value) - Display values on your axis lines or change which axes are shown](#chxt)__
-   - __[chxl(value) - Custom string axis labels on any axis](#chxl)__
-   - __[chxs(value) - Font size, color for axis labels, both custom labels and default label values](#chxs)__
-   - __[chm(value) - compound charts and line fills](#chm)__
-   - __[chls(value) - line thickness and solid/dashed style](#chls)__
-   - __[chl(value) - bar, pie slice, doughnut slice and polar slice chart labels](#chl)__
+   - __[chxt(value) - Display values on your axis lines or change which axes are shown. At most 100 axes.](#chxt)__
+   - __[chxl(value) - Custom string axis labels on any axis. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.](#chxl)__
+   - __[chxs(value) - Font size, color for axis labels, both custom labels and default label values. At most 100 styles, one per axis. Each number format after N holds at most 10,000 characters. An axis draws its format at each tick: at most 60,000 characters over all axes. A character in a font larger than 14 pixels counts once per 14 pixels of font size.](#chxs)__
+   - __[chm(value) - compound charts and line fills. Each marker text holds at most 10,000 characters. The last N marker of a series draws its type and text at each point of the series: at most 60,000 characters over all series. Each label counts 20 characters on top of its text. A character in a font larger than 14 pixels counts once per 14 pixels of font size.](#chm)__
+   - __[chls(value) - line thickness and solid/dashed style. A dashed line needs at least 1 pixel per dash or space on average, and a line width at most 2 times its dash period. Dashed lines run through at most 1,000 points in total.](#chls)__
+   - __[chl(value) - bar, pie slice, doughnut slice and polar slice chart labels. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks. A QR code or a Graphviz chart reads chl as its data, without these limits. A Graphviz chart has its own limits on the DOT source: at most 50,000 characters and 6 levels of braces, 200 nodes and 400 edges. These engines take fewer: neato 70 nodes and 200 edges, twopi 70 nodes and 200 edges, osage 75 nodes and 200 edges, fdp 60 nodes and 200 edges, circo 55 nodes and 110 edges. These graph attributes take a plain decimal number: mclimit from 0 to 5; maxiter from 0 to 1,000; normalize from -100,000,000,000 to 100,000,000,000 (or true, false, yes, no); esep at least 0; dpi at least 0; resolution at least 0. A PNG of more than 16,000,000 pixels, a graph that draws more than 20,000 characters of text, or a line of more than 500 characters is refused: request the SVG output with `chof=.svg` to lift these three.](#chl)__
    - __[chlps(value) - Position and style of labels on data](#chlps)__
    - __[chma(value) - chart margins](#chma)__
    - __[chdlp(value) - Position of the legend and order of the legend entries](#chdlp)__
-   - __[chf(value) - Background Fills](#chf)__
+   - __[chf(value) - Background Fills. At most 100 gradient stops over all fills.](#chf)__
    - __[chbr(value) - Bar corner radius. Display bars with rounded corner.](#chbr)__
    - __[chan(value) - gif configuration](#chan)__
-   - __[chli(value) - doughnut chart inside label](#chli)__
+   - __[chli(value) - doughnut chart inside label. The inside label holds at most 3,000 characters.](#chli)__
    - __[icac(value) - image-charts enterprise `account_id`](#icac)__
    - __[ichm(value) - HMAC-SHA256 signature required to activate paid features](#ichm)__
    - __[icff(value) - Default font family for all text from Google Fonts. Use same syntax as Google Font CSS API](#icff)__
@@ -368,7 +368,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chd"></a>
 #### `chd( value )` : [`ImageCharts`](#constructor)
 
-> chart data
+> chart data. At most 1,000 series, chm line markers included, and 10,080 points in total.
 
 > [Reference](https://documentation.image-charts.com/reference/data-format/)
 
@@ -526,7 +526,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chdl"></a>
 #### `chdl( value )` : [`ImageCharts`](#constructor)
 
-> Text for each series, to display in the legend
+> Text for each series, to display in the legend. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.
 
 > [Reference](https://documentation.image-charts.com/reference/legend-text-and-style/)
 
@@ -568,7 +568,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chg"></a>
 #### `chg( value )` : [`ImageCharts`](#constructor)
 
-> Solid or dotted grid lines
+> Solid or dotted grid lines. A dashed grid needs at least 1 pixel per dash or space on average.
 
 > [Reference](https://documentation.image-charts.com/reference/grid-lines/)
 
@@ -614,7 +614,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chtt"></a>
 #### `chtt( value )` : [`ImageCharts`](#constructor)
 
-> chart title
+> chart title. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.
 
 > [Reference](https://documentation.image-charts.com/reference/chart-title/)
 
@@ -656,7 +656,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chxt"></a>
 #### `chxt( value )` : [`ImageCharts`](#constructor)
 
-> Display values on your axis lines or change which axes are shown
+> Display values on your axis lines or change which axes are shown. At most 100 axes.
 
 > [Reference](https://documentation.image-charts.com/reference/chart-axis/#visible-axes)
 
@@ -680,7 +680,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chxl"></a>
 #### `chxl( value )` : [`ImageCharts`](#constructor)
 
-> Custom string axis labels on any axis
+> Custom string axis labels on any axis. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.
 
 > [Reference](https://documentation.image-charts.com/reference/chart-axis/#custom-axis-labels)
 
@@ -702,7 +702,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chxs"></a>
 #### `chxs( value )` : [`ImageCharts`](#constructor)
 
-> Font size, color for axis labels, both custom labels and default label values
+> Font size, color for axis labels, both custom labels and default label values. At most 100 styles, one per axis. Each number format after N holds at most 10,000 characters. An axis draws its format at each tick: at most 60,000 characters over all axes. A character in a font larger than 14 pixels counts once per 14 pixels of font size.
 
 > [Reference](https://documentation.image-charts.com/reference/chart-axis/#axis-label-styles)
 
@@ -727,7 +727,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chm"></a>
 #### `chm( value )` : [`ImageCharts`](#constructor)
 
-> compound charts and line fills
+> compound charts and line fills. Each marker text holds at most 10,000 characters. The last N marker of a series draws its type and text at each point of the series: at most 60,000 characters over all series. Each label counts 20 characters on top of its text. A character in a font larger than 14 pixels counts once per 14 pixels of font size.
 
 > [Reference](https://documentation.image-charts.com/reference/compound-charts/)
 
@@ -747,7 +747,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chls"></a>
 #### `chls( value )` : [`ImageCharts`](#constructor)
 
-> line thickness and solid/dashed style
+> line thickness and solid/dashed style. A dashed line needs at least 1 pixel per dash or space on average, and a line width at most 2 times its dash period. Dashed lines run through at most 1,000 points in total.
 
 > [Reference](https://documentation.image-charts.com/line-charts/#line-styles)
 
@@ -769,7 +769,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chl"></a>
 #### `chl( value )` : [`ImageCharts`](#constructor)
 
-> bar, pie slice, doughnut slice and polar slice chart labels
+> bar, pie slice, doughnut slice and polar slice chart labels. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks. A QR code or a Graphviz chart reads chl as its data, without these limits. A Graphviz chart has its own limits on the DOT source: at most 50,000 characters and 6 levels of braces, 200 nodes and 400 edges. These engines take fewer: neato 70 nodes and 200 edges, twopi 70 nodes and 200 edges, osage 75 nodes and 200 edges, fdp 60 nodes and 200 edges, circo 55 nodes and 110 edges. These graph attributes take a plain decimal number: mclimit from 0 to 5; maxiter from 0 to 1,000; normalize from -100,000,000,000 to 100,000,000,000 (or true, false, yes, no); esep at least 0; dpi at least 0; resolution at least 0. A PNG of more than 16,000,000 pixels, a graph that draws more than 20,000 characters of text, or a line of more than 500 characters is refused: request the SVG output with `chof=.svg` to lift these three.
 
 > [Reference](https://documentation.image-charts.com/reference/chart-label/)
 
@@ -857,7 +857,7 @@ label1|label2")</pre></a>
 <a name="chf"></a>
 #### `chf( value )` : [`ImageCharts`](#constructor)
 
-> Background Fills
+> Background Fills. At most 100 gradient stops over all fills.
 
 > [Reference](https://documentation.image-charts.com/reference/background-fill/)
 
@@ -922,7 +922,7 @@ label1|label2")</pre></a>
 <a name="chli"></a>
 #### `chli( value )` : [`ImageCharts`](#constructor)
 
-> doughnut chart inside label
+> doughnut chart inside label. The inside label holds at most 3,000 characters.
 
 > [Reference](https://documentation.image-charts.com/pie-charts/#inside-label)
 
