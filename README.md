@@ -82,7 +82,7 @@ pie.toBuffer(); // Promise<Buffer> : Buffer 89 50 4e 47 0d 0a 1a 0a 00 00 00 ...
    - __[chtt(value) - chart title. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.](#chtt)__
    - __[chts(value) - chart title colors and font size](#chts)__
    - __[chxt(value) - Display values on your axis lines or change which axes are shown. At most 100 axes.](#chxt)__
-   - __[chxl(value) - Custom string axis labels on any axis. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.](#chxl)__
+   - __[chxl(value) - Custom string axis labels on any axis. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks. A radar draws a ring per label, completed with blanks up to the longest chd series minus its last value: at most 1,000 rings, and 100,000 ring corners with its spokes.](#chxl)__
    - __[chxs(value) - Font size, color for axis labels, both custom labels and default label values. At most 100 styles, one per axis. Each number format after N holds at most 10,000 characters. An axis draws its format at each tick: at most 60,000 characters over all axes. A character in a font larger than 14 pixels counts once per 14 pixels of font size.](#chxs)__
    - __[chm(value) - compound charts and line fills. Each marker text holds at most 10,000 characters. The last N marker of a series draws its type and text at each point of the series: at most 60,000 characters over all series. Each label counts 20 characters on top of its text. A character in a font larger than 14 pixels counts once per 14 pixels of font size.](#chm)__
    - __[chls(value) - line thickness and solid/dashed style. A dashed line needs at least 1 pixel per dash or space on average, and a line width at most 2 times its dash period. Dashed lines run through at most 1,000 points in total.](#chls)__
@@ -680,7 +680,7 @@ Other allowed values are: <pre>p | p3 | pc | pd | ls | lc | lxy | ls:nda | lc:nd
 <a name="chxl"></a>
 #### `chxl( value )` : [`ImageCharts`](#constructor)
 
-> Custom string axis labels on any axis. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.
+> Custom string axis labels on any axis. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks. A radar draws a ring per label, completed with blanks up to the longest chd series minus its last value: at most 1,000 rings, and 100,000 ring corners with its spokes.
 
 > [Reference](https://documentation.image-charts.com/reference/chart-axis/#custom-axis-labels)
 

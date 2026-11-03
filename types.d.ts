@@ -207,7 +207,7 @@ export default class ImageCharts {
          * const chart = ImageCharts().chxl("0:|Jan|July|Jan");
          * const chart = ImageCharts().chxl("0:|Jan|July|Jan|1|10|20|30");
      * 
-     * @param {string} value - Custom string axis labels on any axis. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks.
+     * @param {string} value - Custom string axis labels on any axis. Each text between pipes holds at most 10,000 characters. The texts of chtt, chdl, chl and chxl hold at most 10,000 characters together that are not printable ASCII: accented letters, other scripts, emoji and line breaks. A radar draws a ring per label, completed with blanks up to the longest chd series minus its last value: at most 1,000 rings, and 100,000 ring corners with its spokes.
      * @return {ImageCharts.constructor}
      */
     chxl(value: string): this;
