@@ -353,12 +353,12 @@ export default class ImageCharts {
     chli(value: string): this;
     
     /**
-     * image-charts enterprise `account_id`
+     * Image-Charts paid plan `account_id`
      * [Reference documentation]{@link https://documentation.image-charts.com/enterprise/}
      * @example
          * const chart = ImageCharts().icac("accountId");
      * 
-     * @param {string} value - image-charts enterprise `account_id`
+     * @param {string} value - Image-Charts paid plan `account_id`
      * @return {ImageCharts.constructor}
      */
     icac(value: string): this;

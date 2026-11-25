@@ -7,7 +7,7 @@ const chart_url = ImageCharts({secret: 'SECRET_KEY'})
 .chd('t:60,40') // 2 data points: 60 and 40
 .chl('Hello|World') // 1 label per pie slice : "Hello" and "World"
 .chf('ps0-0,lg,45,ffeb3b,0.2,f44336,1|ps0-1,lg,45,8bc34a,0.2,009688,1') // 1 gradient per pie slice
-.icretina('1') // enable paid-only features like high-resolution charts
+.icretina('1') // enable Enterprise plan features like high-resolution charts
 .toURL(); // get the whole (HMAC signed) URL
 
 console.log(chart_url);
